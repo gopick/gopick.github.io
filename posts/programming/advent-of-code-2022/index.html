@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <script type="text/javascript" src="https://latest.cactus.chat/cactus.js"></script>
+  <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Advent of Code 2022 | Ricercar</title>
+  <link rel = 'canonical' href = 'https://gopick.github.io/posts/programming/advent-of-code-2022/'>
+  <meta name="description" content="I work as a data engineer at GS now. I got a Bachelor&#39;s and Master&#39;s degree in computer science during my stay at IITK. In those five years I spent an equal amount of time playing badminton. This blog is a platform for me to speak my mind; to curate some of my ideas and opinions. This is a personal blog, and all views presented here are my own. I try to be Uomo Universale. Most associate positive connotations with the phrase, but that isn’t entirely accurate. A wide range of interests results in numerous unresolved ventures, divided attention, and diminished time. I have been meaning to prioritize and focus. My varied interests facilitate a good conversation. So you are always welcome if you want to buy me a coffee. ">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Advent of Code 2022" />
+<meta property="og:description" content="Diary of AOC 2022. This is my first time attempting AOC. My company had a private leaderboard, and I am competitive enough to take the bait. I chose python to solve the puzzles. I know many people use AOC as an opportunity to learn new languages, but I wanted to go with something familiar. I never used python in a professional setting, but I love using it for scripting and writing scrappy code." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://gopick.github.io/posts/programming/advent-of-code-2022/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-01-13T10:03:31+05:30" />
+<meta property="article:modified_time" content="2023-01-13T10:03:31+05:30" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Advent of Code 2022"/>
+<meta name="twitter:description" content="Diary of AOC 2022. This is my first time attempting AOC. My company had a private leaderboard, and I am competitive enough to take the bait. I chose python to solve the puzzles. I know many people use AOC as an opportunity to learn new languages, but I wanted to go with something familiar. I never used python in a professional setting, but I love using it for scripting and writing scrappy code."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://gopick.github.io/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css" integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q=="> 
+
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://gopick.github.io/images/favicon.ico" />
+
+  
+  
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Writings</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li>
+          <a class="icon" href="https://gopick.github.io/posts/personal/why-now/" aria-label="Next">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
+          </a>
+        </li>
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fadvent-of-code-2022%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fadvent-of-code-2022%2f&text=Advent%20of%20Code%202022" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fadvent-of-code-2022%2f&title=Advent%20of%20Code%202022" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fadvent-of-code-2022%2f&is_video=false&description=Advent%20of%20Code%202022" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Advent%20of%20Code%202022&body=Check out this article: https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fadvent-of-code-2022%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fadvent-of-code-2022%2f&title=Advent%20of%20Code%202022" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fadvent-of-code-2022%2f&title=Advent%20of%20Code%202022" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fadvent-of-code-2022%2f&name=Advent%20of%20Code%202022&description=Diary%20of%20AOC%202022.%20This%20is%20my%20first%20time%20attempting%20AOC.%20My%20company%20had%20a%20private%20leaderboard%2c%20and%20I%20am%20competitive%20enough%20to%20take%20the%20bait.%20I%20chose%20python%20to%20solve%20the%20puzzles.%20I%20know%20many%20people%20use%20AOC%20as%20an%20opportunity%20to%20learn%20new%20languages%2c%20but%20I%20wanted%20to%20go%20with%20something%20familiar.%20I%20never%20used%20python%20in%20a%20professional%20setting%2c%20but%20I%20love%20using%20it%20for%20scripting%20and%20writing%20scrappy%20code." aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fadvent-of-code-2022%2f&t=Advent%20of%20Code%202022" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    
+    <div id="toc">
+      <nav id="TableOfContents"></nav>
+    </div>
+    
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Advent of Code 2022
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2023-01-13 10:03:31 &#43;0530 IST" itemprop="datePublished">2023-01-13</time>
+          
+        </div>
+        
+        
+        <div class="article-read-time">
+          <i class="far fa-clock"></i>
+          
+          5 minute read
+        </div>
+        
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="/tags/python" rel="tag">Python</a>
+            
+             ,  
+            <a class="tag-link" href="/tags/programming" rel="tag">Programming</a>
+            
+             ,  
+            <a class="tag-link" href="/tags/puzzles" rel="tag">Puzzles</a>
+            
+        </div>
+        
+      </div>
+    </header>
+
+  
+    
+    <div class="content" itemprop="articleBody">
+      <p>Diary of AOC 2022. This is my first time attempting AOC. My company had a private leaderboard, and I am competitive enough to take the bait. I chose python to solve the puzzles. I know many people use AOC as an opportunity to learn new languages, but I wanted to go with something familiar. I never used python in a professional setting, but I love using it for scripting and writing scrappy code.</p>
+<p>Day 10 check-in -</p>
+<p>I am writing this after 10 days of doing AOC. The first few days just needed string manipulations, sets, string slicing, nothing complex. The fifth day&rsquo;s input was interesting. It required people to parse input of characters that were put inside square brackets. Also, having vertical stacks instead of horizontal ones pissed a few people off.</p>
+<p>[D]<br>
+[N] [C]<br>
+[Z] [M] [P]</p>
+<p>I am a big fan of regex. I wrote some very simple regex to transform it into something friendly to parse in python: removed brackets and replaced spaces with hashes.</p>
+<p>Day 7 is the day I finally struggled a bit. The problem is about going through a folder structure on a PC and being able to tell each folder&rsquo;s size. Now the problem itself is a simple tree traversal. I initially decided to write some scrappy code using dictionaries. But it fell apart very quickly. Unlike other tree problems, a folder name isn&rsquo;t a unique id to represent a node(Folder). Example -
+A folder, let&rsquo;s call it A, can have two subfolders, B and C. B can have a subfolder named A.</p>
+<p>You can still use this approach by making one simple change - while folder names aren&rsquo;t unique, the path of a folder always is. The path of a folder can be used as a key. While it&rsquo;s a bit clunky, it works. But I decided to do this using a class called directory and having pointers to each directory&rsquo;s parent and children. This makes the code very short. Instead of tracking the connections, I am just letting my computer do it at runtime. I remember thinking; this is it; I should make logic as implicit as possible and only handle things that I need to explicitly (unless you are concerned about performance in some cases). Something I thought of but had not internalized. Day 8 involved traversing a grid that has trees of different heights and finding max length of the substring we have seen in any of the 4 directions on a compass. Nothing too complicated.</p>
+<p>Day9 was about a snake of length 1 traversing a grid using a set of rules. We are required to keep track of the tail&rsquo;s position. It started the same way every other day had, by writing scrappy code. I tried to visualize every possible case and write code for it. Only problem is, ten minutes into it, I wrote code for 16 different conditions, and I wasn&rsquo;t happy with it.</p>
+<p>The input was given as LEFT 6, RIGHT 5, UP 4, DOWN 7, etc.</p>
+<p>When I see LEFT 6, I have to move my snake 6 steps to the left, ONE STEP AT A TIME. All I would need to do is write code for the snake&rsquo;s movement for a step in any direction and I am done. But instead of doing that, I started writing code to infer where the tail would end up after 6 steps and all the positions it would have traced. Debugging was a nightmare, and time was of the essence, so I decided to write code for a single step. Lucky for me, it generalized well to the second part. I am shouting again - &ldquo;Make the logic implicit dummy. Let the computer do the work&rdquo;. I think this is the most valuable thing I re-learned while solving AOC. As a programmer especially when you are writing complex software without insane performance requirements, our duty is to define good interfaces that generalize, keep as little state in the code as possible, let the computer handle it. And if possible don&rsquo;t tell the computer how to solve something. Trust the compiler.</p>
+<p>Day 10 was a simple puzzle with a very fun output. The hashes(#s) generated by your program output form English capital letters. It is interesting to think about the question backward. If you were to design the question with unique (and fun) output for every user, how would you go about it? It&rsquo;s not hard, but I am really glad someone went the distance to do it instead of asking to count number of hashes.</p>
+<p>Day 15 check-in -</p>
+<p>The difficulty has increased. I felt the heat on some days. It still doesn&rsquo;t require any complex algorithms to solve the puzzles, but brute force doesn&rsquo;t cut it anymore either. Let&rsquo;s dig in.</p>
+<p>Day 11 part 2 requires a way to keep big integers small. Surprise, surprise, modulo arithmetic. Multiple clues point towards it. One big clue in the question was a repeating division operation where the divisor is always a prime number. So using the number mod( multiply( list( prime number divisors ))) is the same as using the original number</p>
+<p>One thing I like to do to make my &ldquo;grid&rdquo; problems if-else free is to pad them with infinities if we are searching for minimas and -infs if we are searching for maximas.</p>
+<p>Day13 required you to write a custom parser to read a list of lists. Import json ftw!</p>
+<p>I usually simulate the process-specified problem to arrive at the solution. For grid problems, this means creating a huge grid and doing operations on it. Day14 required a more optimal approach. If you want to only know the points that have already been covered, why not just store the coordinates of visited points? In python I used a set to ensure uniqueness, and checking membership in a set is usually O(1). We don&rsquo;t have to store the &ldquo;void.&rdquo;</p>
+<p>Can we do better than storing a set of points? Day 15 asked me this question. Each sensor has a rhombus-shaped field around it, and we need to find the field&rsquo;s intersection with a line parallel to one of its diagonals. Storing every point of the rhombus is impractical in the bounds defined by the question. I realized that we just need to know the circumference to figure out the intersections. The problem is framed for a special case where finding the points of intersection is easy. Once you have the intervals where the line intersects the sensor fields, you just need algorithms for interval merging and searching among intervals to solve the problems.</p>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/posts">Writings</a></li>
+         
+          <li><a href="/tags">Tags</a></li>
+        
+      </ul>
+    </div>
+
+    
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents"></nav>
+    </div>
+    
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fadvent-of-code-2022%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fadvent-of-code-2022%2f&text=Advent%20of%20Code%202022" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fadvent-of-code-2022%2f&title=Advent%20of%20Code%202022" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fadvent-of-code-2022%2f&is_video=false&description=Advent%20of%20Code%202022" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Advent%20of%20Code%202022&body=Check out this article: https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fadvent-of-code-2022%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fadvent-of-code-2022%2f&title=Advent%20of%20Code%202022" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fadvent-of-code-2022%2f&title=Advent%20of%20Code%202022" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fadvent-of-code-2022%2f&name=Advent%20of%20Code%202022&description=Diary%20of%20AOC%202022.%20This%20is%20my%20first%20time%20attempting%20AOC.%20My%20company%20had%20a%20private%20leaderboard%2c%20and%20I%20am%20competitive%20enough%20to%20take%20the%20bait.%20I%20chose%20python%20to%20solve%20the%20puzzles.%20I%20know%20many%20people%20use%20AOC%20as%20an%20opportunity%20to%20learn%20new%20languages%2c%20but%20I%20wanted%20to%20go%20with%20something%20familiar.%20I%20never%20used%20python%20in%20a%20professional%20setting%2c%20but%20I%20love%20using%20it%20for%20scripting%20and%20writing%20scrappy%20code." aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fadvent-of-code-2022%2f&t=Advent%20of%20Code%202022" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2023  Gopichand Kotana 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Writings</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+
+<script src=/js/code-copy.js></script>
+
+
+
+
+</html>
