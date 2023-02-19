@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Puzzles on Ricercar</title>
-    <link>https://gopick.github.io/tags/puzzles/</link>
+    <link>http://gopick.github.io/tags/puzzles/</link>
     <description>Recent content in Puzzles on Ricercar</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Gopichand Kotana</copyright>
-    <lastBuildDate>Fri, 13 Jan 2023 10:03:31 +0530</lastBuildDate><atom:link href="https://gopick.github.io/tags/puzzles/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 Jan 2023 10:03:31 +0530</lastBuildDate><atom:link href="http://gopick.github.io/tags/puzzles/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Advent of Code 2022</title>
-      <link>https://gopick.github.io/posts/programming/advent-of-code-2022/</link>
+      <link>http://gopick.github.io/posts/programming/advent-of-code-2022/</link>
       <pubDate>Fri, 13 Jan 2023 10:03:31 +0530</pubDate>
       
-      <guid>https://gopick.github.io/posts/programming/advent-of-code-2022/</guid>
+      <guid>http://gopick.github.io/posts/programming/advent-of-code-2022/</guid>
       <description>Diary of AOC 2022. This is my first time attempting AOC. My company had a private leaderboard, and I am competitive enough to take the bait. I chose python to solve the puzzles. I know many people use AOC as an opportunity to learn new languages, but I wanted to go with something familiar. I never used python in a professional setting, but I love using it for scripting and writing scrappy code.</description>
     </item>
     
