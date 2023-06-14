@@ -7,25 +7,36 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Gopichand Kotana</copyright>
-    <lastBuildDate>Fri, 13 Jan 2023 10:03:31 +0530</lastBuildDate><atom:link href="https://gopick.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 13 Jun 2023 10:03:31 +0530</lastBuildDate><atom:link href="https://gopick.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Advent of Code 2022</title>
-      <link>https://gopick.github.io/posts/programming/advent-of-code-2022/</link>
-      <pubDate>Fri, 13 Jan 2023 10:03:31 +0530</pubDate>
+      <title>Multithreading in Java Basics (examples by chatgpt)</title>
+      <link>https://gopick.github.io/posts/programming/multithreading-in-java/</link>
+      <pubDate>Tue, 13 Jun 2023 10:03:31 +0530</pubDate>
       
-      <guid>https://gopick.github.io/posts/programming/advent-of-code-2022/</guid>
-      <description>Diary of AOC 2022. This is my first time attempting AOC. My company had a private leaderboard, and I am competitive enough to take the bait. I chose python to solve the puzzles. I know many people use AOC as an opportunity to learn new languages, but I wanted to go with something familiar. I never used python in a professional setting, but I love using it for scripting and writing scrappy code.</description>
+      <guid>https://gopick.github.io/posts/programming/multithreading-in-java/</guid>
+      <description>Multithreading Modern operating systems utilize multithreading to run different applications concurrently.
+Multithreading at the operating system level gives an illusion of simultaneous execution of multiple applications. The scheduler switches between different threads allowing them to progress concurrently.
+Threads are lightweight execution units within a process. They share the same memory space, resources, and state as the parent process. Each thread has its own program counter, stack, and set of registers, allowing it to execute instructions independently.</description>
     </item>
     
     <item>
       <title>What are vector databases? Why are they hot right now?</title>
       <link>https://gopick.github.io/posts/programming/vector-databases/</link>
-      <pubDate>Fri, 13 Jan 2023 10:03:31 +0530</pubDate>
+      <pubDate>Wed, 10 May 2023 05:03:31 +0530</pubDate>
       
       <guid>https://gopick.github.io/posts/programming/vector-databases/</guid>
       <description>So What are Vector Dbs?
 Vector Dbs are Databases that have native support to store and retrieve vector data. In Deep Learning everything is a vector -&amp;gt; Your inputs, weights, and your learned semantic space and embeddings. Vector Dbs can be used to store and retrieve these artifacts efficiently.
 What is the right way of storing and retrieving these vectors? You typically want &amp;lsquo;Similar&amp;rsquo; vectors to be bunched together. Let&amp;rsquo;s define similarity as the distance between two vectors.</description>
+    </item>
+    
+    <item>
+      <title>Advent of Code 2022</title>
+      <link>https://gopick.github.io/posts/programming/advent-of-code-2022/</link>
+      <pubDate>Thu, 26 Jan 2023 10:03:31 +0530</pubDate>
+      
+      <guid>https://gopick.github.io/posts/programming/advent-of-code-2022/</guid>
+      <description>Diary of AOC 2022. This is my first time attempting AOC. My company had a private leaderboard, and I am competitive enough to take the bait. I chose python to solve the puzzles. I know many people use AOC as an opportunity to learn new languages, but I wanted to go with something familiar. I never used python in a professional setting, but I love using it for scripting and writing scrappy code.</description>
     </item>
     
   </channel>
