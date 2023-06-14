@@ -7,20 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Gopichand Kotana</copyright>
-    <lastBuildDate>Fri, 13 Jan 2023 10:42:23 +0530</lastBuildDate><atom:link href="https://gopick.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 13 Jun 2023 10:03:31 +0530</lastBuildDate><atom:link href="https://gopick.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Personal</title>
-      <link>https://gopick.github.io/tags/personal/</link>
-      <pubDate>Fri, 13 Jan 2023 10:42:23 +0530</pubDate>
+      <title>Java</title>
+      <link>https://gopick.github.io/tags/java/</link>
+      <pubDate>Tue, 13 Jun 2023 10:03:31 +0530</pubDate>
       
-      <guid>https://gopick.github.io/tags/personal/</guid>
+      <guid>https://gopick.github.io/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programming</title>
+      <link>https://gopick.github.io/tags/programming/</link>
+      <pubDate>Tue, 13 Jun 2023 10:03:31 +0530</pubDate>
+      
+      <guid>https://gopick.github.io/tags/programming/</guid>
       <description></description>
     </item>
     
     <item>
       <title>AI</title>
       <link>https://gopick.github.io/tags/ai/</link>
-      <pubDate>Fri, 13 Jan 2023 10:03:31 +0530</pubDate>
+      <pubDate>Wed, 10 May 2023 05:03:31 +0530</pubDate>
       
       <guid>https://gopick.github.io/tags/ai/</guid>
       <description></description>
@@ -29,7 +38,7 @@
     <item>
       <title>Databases</title>
       <link>https://gopick.github.io/tags/databases/</link>
-      <pubDate>Fri, 13 Jan 2023 10:03:31 +0530</pubDate>
+      <pubDate>Wed, 10 May 2023 05:03:31 +0530</pubDate>
       
       <guid>https://gopick.github.io/tags/databases/</guid>
       <description></description>
@@ -38,25 +47,16 @@
     <item>
       <title>ML</title>
       <link>https://gopick.github.io/tags/ml/</link>
-      <pubDate>Fri, 13 Jan 2023 10:03:31 +0530</pubDate>
+      <pubDate>Wed, 10 May 2023 05:03:31 +0530</pubDate>
       
       <guid>https://gopick.github.io/tags/ml/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Programming</title>
-      <link>https://gopick.github.io/tags/programming/</link>
-      <pubDate>Fri, 13 Jan 2023 10:03:31 +0530</pubDate>
-      
-      <guid>https://gopick.github.io/tags/programming/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Puzzles</title>
       <link>https://gopick.github.io/tags/puzzles/</link>
-      <pubDate>Fri, 13 Jan 2023 10:03:31 +0530</pubDate>
+      <pubDate>Thu, 26 Jan 2023 10:03:31 +0530</pubDate>
       
       <guid>https://gopick.github.io/tags/puzzles/</guid>
       <description></description>
@@ -65,9 +65,18 @@
     <item>
       <title>Python</title>
       <link>https://gopick.github.io/tags/python/</link>
-      <pubDate>Fri, 13 Jan 2023 10:03:31 +0530</pubDate>
+      <pubDate>Thu, 26 Jan 2023 10:03:31 +0530</pubDate>
       
       <guid>https://gopick.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Personal</title>
+      <link>https://gopick.github.io/tags/personal/</link>
+      <pubDate>Fri, 13 Jan 2023 10:42:23 +0530</pubDate>
+      
+      <guid>https://gopick.github.io/tags/personal/</guid>
       <description></description>
     </item>
     

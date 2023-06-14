@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <script type="text/javascript" src="https://latest.cactus.chat/cactus.js"></script>
+  <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Multithreading in Java Basics (examples by chatgpt) | Ricercar</title>
+  <link rel = 'canonical' href = 'https://gopick.github.io/posts/programming/multithreading-in-java/'>
+  <meta name="description" content="I work as a data engineer at GS now. Previously I spent five years playing badminton at IIT Kanpur. I also got a Bachelor’s and Master’s degree in computer science during that time. This blog is a platform for me to speak my mind; to curate some of my ideas and opinions. This is a personal blog, and all views presented here are my own.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Multithreading in Java Basics (examples by chatgpt)" />
+<meta property="og:description" content="Multithreading Modern operating systems utilize multithreading to run different applications concurrently.
+Multithreading at the operating system level gives an illusion of simultaneous execution of multiple applications. The scheduler switches between different threads allowing them to progress concurrently.
+Threads are lightweight execution units within a process. They share the same memory space, resources, and state as the parent process. Each thread has its own program counter, stack, and set of registers, allowing it to execute instructions independently." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://gopick.github.io/posts/programming/multithreading-in-java/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-13T10:03:31+05:30" />
+<meta property="article:modified_time" content="2023-06-13T10:03:31+05:30" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Multithreading in Java Basics (examples by chatgpt)"/>
+<meta name="twitter:description" content="Multithreading Modern operating systems utilize multithreading to run different applications concurrently.
+Multithreading at the operating system level gives an illusion of simultaneous execution of multiple applications. The scheduler switches between different threads allowing them to progress concurrently.
+Threads are lightweight execution units within a process. They share the same memory space, resources, and state as the parent process. Each thread has its own program counter, stack, and set of registers, allowing it to execute instructions independently."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://gopick.github.io/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css" integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q=="> 
+
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://gopick.github.io/images/favicon.ico" />
+
+  
+  
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Writings</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://gopick.github.io/posts/programming/vector-databases/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fmultithreading-in-java%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fmultithreading-in-java%2f&text=Multithreading%20in%20Java%20Basics%20%28examples%20by%20chatgpt%29" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fmultithreading-in-java%2f&title=Multithreading%20in%20Java%20Basics%20%28examples%20by%20chatgpt%29" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fmultithreading-in-java%2f&is_video=false&description=Multithreading%20in%20Java%20Basics%20%28examples%20by%20chatgpt%29" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Multithreading%20in%20Java%20Basics%20%28examples%20by%20chatgpt%29&body=Check out this article: https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fmultithreading-in-java%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fmultithreading-in-java%2f&title=Multithreading%20in%20Java%20Basics%20%28examples%20by%20chatgpt%29" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fmultithreading-in-java%2f&title=Multithreading%20in%20Java%20Basics%20%28examples%20by%20chatgpt%29" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fmultithreading-in-java%2f&name=Multithreading%20in%20Java%20Basics%20%28examples%20by%20chatgpt%29&description=Multithreading%20Modern%20operating%20systems%20utilize%20multithreading%20to%20run%20different%20applications%20concurrently.%0aMultithreading%20at%20the%20operating%20system%20level%20gives%20an%20illusion%20of%20simultaneous%20execution%20of%20multiple%20applications.%20The%20scheduler%20switches%20between%20different%20threads%20allowing%20them%20to%20progress%20concurrently.%0aThreads%20are%20lightweight%20execution%20units%20within%20a%20process.%20They%20share%20the%20same%20memory%20space%2c%20resources%2c%20and%20state%20as%20the%20parent%20process.%20Each%20thread%20has%20its%20own%20program%20counter%2c%20stack%2c%20and%20set%20of%20registers%2c%20allowing%20it%20to%20execute%20instructions%20independently." aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fmultithreading-in-java%2f&t=Multithreading%20in%20Java%20Basics%20%28examples%20by%20chatgpt%29" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#multithreading">Multithreading</a></li>
+    <li><a href="#java-specifics">Java Specifics</a>
+      <ul>
+        <li><a href="#creating-and-terminating-threads">Creating and Terminating threads</a></li>
+        <li><a href="#synchronizing-threads">Synchronizing threads</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+    
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Multithreading in Java Basics (examples by chatgpt)
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2023-06-13 10:03:31 &#43;0530 IST" itemprop="datePublished">2023-06-13</time>
+          
+        </div>
+        
+        
+        <div class="article-read-time">
+          <i class="far fa-clock"></i>
+          
+          5 minute read
+        </div>
+        
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="/tags/programming" rel="tag">Programming</a>
+            
+             ,  
+            <a class="tag-link" href="/tags/java" rel="tag">Java</a>
+            
+        </div>
+        
+      </div>
+    </header>
+
+  
+    
+    <div class="content" itemprop="articleBody">
+      <h2 id="multithreading">Multithreading</h2>
+<p>Modern operating systems utilize multithreading to run different applications concurrently.</p>
+<p>Multithreading at the operating system level gives an illusion of simultaneous execution of multiple applications.
+The scheduler switches between different threads allowing them to progress concurrently.</p>
+<p>Threads are lightweight execution units within a process. They share the same memory space, resources, and state as the parent process. Each thread has its own program counter, stack, and set of registers, allowing it to execute instructions independently.</p>
+<p>Threads within a process share the same resources, such as memory, files, and network connections. While this can provide efficiency, it also requires careful synchronization to ensure that multiple threads don&rsquo;t interfere with each other or access shared resources simultaneously, leading to data inconsistencies or race conditions.</p>
+<p>Multithreading can provide both parallelism and concurrency</p>
+<h2 id="java-specifics">Java Specifics</h2>
+<h3 id="creating-and-terminating-threads">Creating and Terminating threads</h3>
+<p><code>Thread</code> is a class in Java that represents a thread of execution.
+To create a new thread using the Thread class, you can extend the Thread class and override the <code>run()</code> method, which contains the code that will be executed by the thread.
+Once you&rsquo;ve created a Thread object, you can start the execution of the thread by calling the <code>start()</code> method on the Thread object.
+The Thread class provides additional methods and functionalities for managing threads, such as controlling thread execution, pausing/resuming threads, and checking thread status.</p>
+<p><code>Runnable</code> is an interface in Java that represents a task or unit of work that can be executed by a thread.
+To use the <code>Runnable</code> interface, you need to implement the <code>run()</code> method defined by the interface. This method contains the code that will be executed when the thread runs.
+Once you have implemented the <code>run()</code> method, you can create a Thread object, passing an instance of the Runnable implementation to the Thread constructor.
+The Thread object created with a Runnable can execute the task defined in the <code>run()</code> method when the thread is started with the <code>start()</code> method.</p>
+<p>In summary, Thread is a class that represents a thread of execution, while Runnable is an interface that defines the task to be executed by a thread. You can create a thread by either extending the Thread class or implementing the Runnable interface and passing it to a Thread object. Using the Runnable interface allows for better separation of concerns, as it decouples the task from the thread implementation. This makes it easier to reuse the task implementation and promotes a more flexible and modular design.</p>
+<pre tabindex="0"><code>Runnable r = new RunnableImplementation();
+Thread t = new Thread(r);
+t.start();
+</code></pre><p>Daemon thread is a type of thread that runs in the background and provides support to other non-daemon threads. Unlike regular (non-daemon) threads, the JVM does not wait for daemon threads to complete before terminating the program.</p>
+<pre tabindex="0"><code>Thread daemonThread = new Thread(new Runnable() {
+    public void run() {
+        // Background task implementation
+    }
+});
+daemonThread.setDaemon(true);
+daemonThread.start();
+</code></pre><p>We need to explicitly terminate non-daemon threads.</p>
+<p>We can use a shared flag that a thread can periodically check to terminate its execution</p>
+<pre tabindex="0"><code>public class MyThread extends Thread {
+private volatile boolean isStopped = false;
+
+    public void run() {
+        while (!isStopped) {
+            // Perform the main task of the thread
+            System.out.println(&#34;Thread is running...&#34;);
+
+            // thread performing some task
+        }
+        System.out.println(&#34;Thread stopped&#34;);
+    }
+
+    public void stopThread() {
+        isStopped = true;
+    }
+}
+</code></pre><pre tabindex="0"><code>MyThread thread = new MyThread();
+thread.start();
+
+//Thread runs for a while
+   
+// Request the thread to stop
+thread.stopThread();
+</code></pre><p>Marking <code>isStopped</code> as <code>volatile</code> ensures that changes made to the variable by one thread are immediately visible to other threads.</p>
+<p>When a thread is in blocked state we can&rsquo;t expect it to check flag value.</p>
+<p>In such cases, you can call the <code>interrupt()</code> method on the thread object. It sets the interrupted status of the thread to true. The thread needs to be responsive to interruption requests by checking the interrupted status using <code>Thread.interrupted()</code> or <code>Thread.isInterrupted()</code>.</p>
+<pre tabindex="0"><code>public class MyThread extends Thread {
+    public void run() {
+        while (!Thread.interrupted()) {
+            // Perform the main task of the thread
+            System.out.println(&#34;Thread is running...&#34;);
+
+            // Check for interruption and handle it
+            if (Thread.interrupted()) {
+                System.out.println(&#34;Thread interrupted. Cleaning up and stopping...&#34;);
+                // Cleanup code if needed
+                break;
+            }
+
+            // Simulate some work
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                System.out.println(&#34;Thread interrupted while sleeping. Cleaning up and stopping...&#34;);
+                // Cleanup code if needed
+                break;
+            }
+        }
+        System.out.println(&#34;Thread stopped gracefully.&#34;);
+    }
+}
+</code></pre><pre tabindex="0"><code>public class Main {
+    public static void main(String[] args) {
+        MyThread thread = new MyThread();
+        thread.start();
+
+        // Let the thread run for a while
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Request the thread to stop by interrupting it
+        thread.interrupt();
+    }
+}
+</code></pre><p>Note - <code>Thread.stop()</code> method forcibly terminates a thread. It is deprecated and highly discouraged to use.</p>
+<h3 id="synchronizing-threads">Synchronizing threads</h3>
+<p><code>synchronized</code> keyword can be used to synchronize blocks of code or an entire method.</p>
+<p>Example</p>
+<pre tabindex="0"><code>public class Main {
+    public static void main(String[] args) {
+        Counter counter = new Counter();
+
+        // Create multiple threads to increment the counter
+        Thread t1 = new Thread(() -&gt; {
+            for (int i = 0; i &lt; 1000; i++) {
+                counter.increment();
+            }
+        });
+
+        Thread t2 = new Thread(() -&gt; {
+            for (int i = 0; i &lt; 1000; i++) {
+                counter.increment();
+            }
+        });
+
+        // Start the threads
+        t1.start();
+        t2.start();
+
+        // Wait for the threads to complete
+        try {
+            t1.join();
+            t2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Get the final count
+        System.out.println(&#34;Count: &#34; + counter.getCount());
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Counter counter = new Counter();
+
+        // Create multiple threads to increment the counter
+        Thread t1 = new Thread(() -&gt; {
+            for (int i = 0; i &lt; 1000; i++) {
+                counter.increment();
+            }
+        });
+
+        Thread t2 = new Thread(() -&gt; {
+            for (int i = 0; i &lt; 1000; i++) {
+                counter.increment();
+            }
+        });
+
+        // Start the threads
+        t1.start();
+        t2.start();
+
+        // Wait for the threads to complete
+        try {
+            t1.join();
+            t2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Get the final count
+        System.out.println(&#34;Count: &#34; + counter.getCount());
+    }
+}
+</code></pre><p>The output will be <strong>Count: 2000</strong></p>
+<p>The join() method forces one thread to wait for the completion of another thread before proceeding further.</p>
+<p>I will write about <code>ExecutorService</code> interface in a future post. It is an interface that is commonly used to manage multithreading in Java.
+It is a better alternative to directly using the Thread class as it abstracts away lot of problems that arise during thread management.</p>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/posts">Writings</a></li>
+         
+          <li><a href="/tags">Tags</a></li>
+        
+      </ul>
+    </div>
+
+    
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#multithreading">Multithreading</a></li>
+    <li><a href="#java-specifics">Java Specifics</a>
+      <ul>
+        <li><a href="#creating-and-terminating-threads">Creating and Terminating threads</a></li>
+        <li><a href="#synchronizing-threads">Synchronizing threads</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+    
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fmultithreading-in-java%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fmultithreading-in-java%2f&text=Multithreading%20in%20Java%20Basics%20%28examples%20by%20chatgpt%29" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fmultithreading-in-java%2f&title=Multithreading%20in%20Java%20Basics%20%28examples%20by%20chatgpt%29" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fmultithreading-in-java%2f&is_video=false&description=Multithreading%20in%20Java%20Basics%20%28examples%20by%20chatgpt%29" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Multithreading%20in%20Java%20Basics%20%28examples%20by%20chatgpt%29&body=Check out this article: https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fmultithreading-in-java%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fmultithreading-in-java%2f&title=Multithreading%20in%20Java%20Basics%20%28examples%20by%20chatgpt%29" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fmultithreading-in-java%2f&title=Multithreading%20in%20Java%20Basics%20%28examples%20by%20chatgpt%29" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fmultithreading-in-java%2f&name=Multithreading%20in%20Java%20Basics%20%28examples%20by%20chatgpt%29&description=Multithreading%20Modern%20operating%20systems%20utilize%20multithreading%20to%20run%20different%20applications%20concurrently.%0aMultithreading%20at%20the%20operating%20system%20level%20gives%20an%20illusion%20of%20simultaneous%20execution%20of%20multiple%20applications.%20The%20scheduler%20switches%20between%20different%20threads%20allowing%20them%20to%20progress%20concurrently.%0aThreads%20are%20lightweight%20execution%20units%20within%20a%20process.%20They%20share%20the%20same%20memory%20space%2c%20resources%2c%20and%20state%20as%20the%20parent%20process.%20Each%20thread%20has%20its%20own%20program%20counter%2c%20stack%2c%20and%20set%20of%20registers%2c%20allowing%20it%20to%20execute%20instructions%20independently." aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fmultithreading-in-java%2f&t=Multithreading%20in%20Java%20Basics%20%28examples%20by%20chatgpt%29" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2023  Gopichand Kotana 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Writings</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+
+<script src=/js/code-copy.js></script>
+
+
+
+
+</html>
