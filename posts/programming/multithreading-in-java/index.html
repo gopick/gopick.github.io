@@ -16,9 +16,8 @@
   <meta name="robots" content="all,follow">
   <meta name="googlebot" content="index,follow,snippet,archive">
   <meta property="og:title" content="Multithreading Basics (Java examples by chatgpt)" />
-<meta property="og:description" content="Multithreading Multithreading is a programming technique that allows multiple threads to run concurrently within a single process. Modern operating systems utilize multithreading to run different applications concurrently.
-Multithreading at the operating system level gives an illusion of simultaneous execution of multiple applications. The scheduler switches between different threads allowing them to progress concurrently.
-Threads are lightweight execution units within a process. They share the same memory space, resources, and state as the parent process." />
+<meta property="og:description" content="Multithreading Multithreading is a programming technique that allows multiple threads to run concurrently and parallely within a single process. Parallelism is possible if you have multiple cores available for the threads to run on.
+Threads are lightweight execution units within a process. They share the same memory space, resources, and state as the parent process. Each thread has its own program counter, stack, and set of registers, allowing it to execute instructions independently." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://gopick.github.io/posts/programming/multithreading-in-java/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-06-13T10:03:31+05:30" />
@@ -26,9 +25,8 @@ Threads are lightweight execution units within a process. They share the same me
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Multithreading Basics (Java examples by chatgpt)"/>
-<meta name="twitter:description" content="Multithreading Multithreading is a programming technique that allows multiple threads to run concurrently within a single process. Modern operating systems utilize multithreading to run different applications concurrently.
-Multithreading at the operating system level gives an illusion of simultaneous execution of multiple applications. The scheduler switches between different threads allowing them to progress concurrently.
-Threads are lightweight execution units within a process. They share the same memory space, resources, and state as the parent process."/>
+<meta name="twitter:description" content="Multithreading Multithreading is a programming technique that allows multiple threads to run concurrently and parallely within a single process. Parallelism is possible if you have multiple cores available for the threads to run on.
+Threads are lightweight execution units within a process. They share the same memory space, resources, and state as the parent process. Each thread has its own program counter, stack, and set of registers, allowing it to execute instructions independently."/>
 
   
   
@@ -146,7 +144,7 @@ Threads are lightweight execution units within a process. They share the same me
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fmultithreading-in-java%2f&name=Multithreading%20Basics%20%28Java%20examples%20by%20chatgpt%29&description=Multithreading%20Multithreading%20is%20a%20programming%20technique%20that%20allows%20multiple%20threads%20to%20run%20concurrently%20within%20a%20single%20process.%20Modern%20operating%20systems%20utilize%20multithreading%20to%20run%20different%20applications%20concurrently.%0aMultithreading%20at%20the%20operating%20system%20level%20gives%20an%20illusion%20of%20simultaneous%20execution%20of%20multiple%20applications.%20The%20scheduler%20switches%20between%20different%20threads%20allowing%20them%20to%20progress%20concurrently.%0aThreads%20are%20lightweight%20execution%20units%20within%20a%20process.%20They%20share%20the%20same%20memory%20space%2c%20resources%2c%20and%20state%20as%20the%20parent%20process." aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fmultithreading-in-java%2f&name=Multithreading%20Basics%20%28Java%20examples%20by%20chatgpt%29&description=Multithreading%20Multithreading%20is%20a%20programming%20technique%20that%20allows%20multiple%20threads%20to%20run%20concurrently%20and%20parallely%20within%20a%20single%20process.%20Parallelism%20is%20possible%20if%20you%20have%20multiple%20cores%20available%20for%20the%20threads%20to%20run%20on.%0aThreads%20are%20lightweight%20execution%20units%20within%20a%20process.%20They%20share%20the%20same%20memory%20space%2c%20resources%2c%20and%20state%20as%20the%20parent%20process.%20Each%20thread%20has%20its%20own%20program%20counter%2c%20stack%2c%20and%20set%20of%20registers%2c%20allowing%20it%20to%20execute%20instructions%20independently." aria-label="Tumblr">
       <i class="fab fa-tumblr " aria-hidden="true"></i>
     </a>
   </li>
@@ -195,7 +193,7 @@ Threads are lightweight execution units within a process. They share the same me
         <div class="article-read-time">
           <i class="far fa-clock"></i>
           
-          7 minute read
+          8 minute read
         </div>
         
         
@@ -218,13 +216,13 @@ Threads are lightweight execution units within a process. They share the same me
     
     <div class="content" itemprop="articleBody">
       <h2 id="multithreading">Multithreading</h2>
-<p>Multithreading is a programming technique that allows multiple threads to run concurrently within a single process.
-Modern operating systems utilize multithreading to run different applications concurrently.</p>
-<p>Multithreading at the operating system level gives an illusion of simultaneous execution of multiple applications.
-The scheduler switches between different threads allowing them to progress concurrently.</p>
+<p>Multithreading is a programming technique that allows multiple threads to run concurrently and parallely within a single process.
+Parallelism is possible if you have multiple cores available for the threads to run on.</p>
 <p>Threads are lightweight execution units within a process. They share the same memory space, resources, and state as the parent process.
 Each thread has its own program counter, stack, and set of registers, allowing it to execute instructions independently.</p>
 <p>Threads within a process share the same resources, such as memory, files, and network connections. While this can provide efficiency, it also requires careful synchronization to ensure that multiple threads don&rsquo;t interfere with each other or access shared resources simultaneously, leading to data inconsistencies or race conditions.</p>
+<p>Multithreading at the operating system level gives an illusion of simultaneous execution of multiple applications.
+The scheduler switches between different threads allowing them to progress concurrently.</p>
 <p>Multithreading can provide both parallelism and concurrency.</p>
 <ul>
 <li>A web browser is a concurrent application. Multiple tabs can be open at the same time, and the user can switch between them. However, only one tab can be actively running at a time.</li>
@@ -379,8 +377,13 @@ public class Main {
 </code></pre><p>The output will be <strong>Count: 2000</strong></p>
 <p>The join() method forces one thread to wait for the completion of another thread before proceeding further.</p>
 <h3 id="inter-thread-communication">Inter thread communication</h3>
-<p>wait() and notify() methods are used for inter-thread communication. They are defined in the Object class in Java.
+<p>wait(), notify() and notifyAll() methods are used for inter-thread communication. They are defined in the Object class in Java.
 The methods wait(), notify(), and notifyAll() are typically called from within a synchronized context (synchronized block or synchronized method).</p>
+<p>The wait() method causes the current thread to release the lock on the object it is called upon and enter a waiting state until another thread invokes the notify() or notifyAll() method on the same object.</p>
+<p>The notify() method wakes up a single thread that is waiting on the object&rsquo;s monitor. If multiple threads are waiting, only one of them will be awakened, and the choice is arbitrary.</p>
+<p>The notifyAll() method wakes up all threads that are waiting on the object&rsquo;s monitor. Each thread will then compete for the lock.</p>
+<p>In the below example, the Message class represents a shared resource between a producer and a consumer thread.</p>
+<p>The put() method is used by the producer thread to put a message into the shared resource, and the get() method is used by the consumer thread to retrieve a message.</p>
 <pre tabindex="0"><code>public class Message {
     private String content;
     private boolean isMessageAvailable;
@@ -416,7 +419,9 @@ The methods wait(), notify(), and notifyAll() are typically called from within a
         return message;
     }
 }
-</code></pre><pre tabindex="0"><code>public class Main {
+</code></pre><p>The MessageOrchestrator class creates an instance of the Message class and creates two threads - producerThread and consumerThread. The producer thread puts five messages into the shared resource, with a delay of 1 second between each message. The consumer thread gets the messages from the shared resource with a similar delay.</p>
+<p>The producer and consumer threads coordinate by using wait() and notify() to ensure that the producer puts a message only when the consumer has consumed the previous message, and vice versa.</p>
+<pre tabindex="0"><code>public class MessageOrchestrator {
     public static void main(String[] args) {
         Message message = new Message();
 
@@ -580,7 +585,7 @@ It is a better alternative to directly using the Thread class as it abstracts aw
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fmultithreading-in-java%2f&name=Multithreading%20Basics%20%28Java%20examples%20by%20chatgpt%29&description=Multithreading%20Multithreading%20is%20a%20programming%20technique%20that%20allows%20multiple%20threads%20to%20run%20concurrently%20within%20a%20single%20process.%20Modern%20operating%20systems%20utilize%20multithreading%20to%20run%20different%20applications%20concurrently.%0aMultithreading%20at%20the%20operating%20system%20level%20gives%20an%20illusion%20of%20simultaneous%20execution%20of%20multiple%20applications.%20The%20scheduler%20switches%20between%20different%20threads%20allowing%20them%20to%20progress%20concurrently.%0aThreads%20are%20lightweight%20execution%20units%20within%20a%20process.%20They%20share%20the%20same%20memory%20space%2c%20resources%2c%20and%20state%20as%20the%20parent%20process." aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fmultithreading-in-java%2f&name=Multithreading%20Basics%20%28Java%20examples%20by%20chatgpt%29&description=Multithreading%20Multithreading%20is%20a%20programming%20technique%20that%20allows%20multiple%20threads%20to%20run%20concurrently%20and%20parallely%20within%20a%20single%20process.%20Parallelism%20is%20possible%20if%20you%20have%20multiple%20cores%20available%20for%20the%20threads%20to%20run%20on.%0aThreads%20are%20lightweight%20execution%20units%20within%20a%20process.%20They%20share%20the%20same%20memory%20space%2c%20resources%2c%20and%20state%20as%20the%20parent%20process.%20Each%20thread%20has%20its%20own%20program%20counter%2c%20stack%2c%20and%20set%20of%20registers%2c%20allowing%20it%20to%20execute%20instructions%20independently." aria-label="Tumblr">
       <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
     </a>
   </li>
