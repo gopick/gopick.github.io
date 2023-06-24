@@ -14,9 +14,8 @@
       <pubDate>Tue, 13 Jun 2023 10:03:31 +0530</pubDate>
       
       <guid>https://gopick.github.io/posts/programming/multithreading-in-java/</guid>
-      <description>Multithreading Multithreading is a programming technique that allows multiple threads to run concurrently within a single process. Modern operating systems utilize multithreading to run different applications concurrently.
-Multithreading at the operating system level gives an illusion of simultaneous execution of multiple applications. The scheduler switches between different threads allowing them to progress concurrently.
-Threads are lightweight execution units within a process. They share the same memory space, resources, and state as the parent process.</description>
+      <description>Multithreading Multithreading is a programming technique that allows multiple threads to run concurrently and parallely within a single process. Parallelism is possible if you have multiple cores available for the threads to run on.
+Threads are lightweight execution units within a process. They share the same memory space, resources, and state as the parent process. Each thread has its own program counter, stack, and set of registers, allowing it to execute instructions independently.</description>
     </item>
     
     <item>
