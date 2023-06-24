@@ -9,14 +9,14 @@
     <copyright>Gopichand Kotana</copyright>
     <lastBuildDate>Tue, 13 Jun 2023 10:03:31 +0530</lastBuildDate><atom:link href="https://gopick.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Multithreading in Java Basics (examples by chatgpt)</title>
+      <title>Multithreading Basics (Java examples by chatgpt)</title>
       <link>https://gopick.github.io/posts/programming/multithreading-in-java/</link>
       <pubDate>Tue, 13 Jun 2023 10:03:31 +0530</pubDate>
       
       <guid>https://gopick.github.io/posts/programming/multithreading-in-java/</guid>
-      <description>Multithreading Modern operating systems utilize multithreading to run different applications concurrently.
+      <description>Multithreading Multithreading is a programming technique that allows multiple threads to run concurrently within a single process. Modern operating systems utilize multithreading to run different applications concurrently.
 Multithreading at the operating system level gives an illusion of simultaneous execution of multiple applications. The scheduler switches between different threads allowing them to progress concurrently.
-Threads are lightweight execution units within a process. They share the same memory space, resources, and state as the parent process. Each thread has its own program counter, stack, and set of registers, allowing it to execute instructions independently.</description>
+Threads are lightweight execution units within a process. They share the same memory space, resources, and state as the parent process.</description>
     </item>
     
   </channel>

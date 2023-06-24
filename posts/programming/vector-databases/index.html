@@ -16,8 +16,7 @@
   <meta name="robots" content="all,follow">
   <meta name="googlebot" content="index,follow,snippet,archive">
   <meta property="og:title" content="What are vector databases? Why are they hot right now?" />
-<meta property="og:description" content="So What are Vector Dbs?
-Vector Dbs are Databases that have native support to store and retrieve vector data. In Deep Learning everything is a vector -&gt; Your inputs, weights, and your learned semantic space and embeddings. Vector Dbs can be used to store and retrieve these artifacts efficiently.
+<meta property="og:description" content="So What are Vector Dbs? Vector Dbs are Databases that have native support to store and retrieve vector data. In Deep Learning everything is a vector -&gt; Your inputs, weights, and your learned semantic space and embeddings. Vector Dbs can be used to store and retrieve these artifacts efficiently.
 What is the right way of storing and retrieving these vectors? You typically want &lsquo;Similar&rsquo; vectors to be bunched together. Let&rsquo;s define similarity as the distance between two vectors." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://gopick.github.io/posts/programming/vector-databases/" /><meta property="article:section" content="posts" />
@@ -26,8 +25,7 @@ What is the right way of storing and retrieving these vectors? You typically wan
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="What are vector databases? Why are they hot right now?"/>
-<meta name="twitter:description" content="So What are Vector Dbs?
-Vector Dbs are Databases that have native support to store and retrieve vector data. In Deep Learning everything is a vector -&gt; Your inputs, weights, and your learned semantic space and embeddings. Vector Dbs can be used to store and retrieve these artifacts efficiently.
+<meta name="twitter:description" content="So What are Vector Dbs? Vector Dbs are Databases that have native support to store and retrieve vector data. In Deep Learning everything is a vector -&gt; Your inputs, weights, and your learned semantic space and embeddings. Vector Dbs can be used to store and retrieve these artifacts efficiently.
 What is the right way of storing and retrieving these vectors? You typically want &lsquo;Similar&rsquo; vectors to be bunched together. Let&rsquo;s define similarity as the distance between two vectors."/>
 
   
@@ -152,7 +150,7 @@ What is the right way of storing and retrieving these vectors? You typically wan
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fvector-databases%2f&name=What%20are%20vector%20databases%3f%20Why%20are%20they%20hot%20right%20now%3f&description=So%20What%20are%20Vector%20Dbs%3f%0aVector%20Dbs%20are%20Databases%20that%20have%20native%20support%20to%20store%20and%20retrieve%20vector%20data.%20In%20Deep%20Learning%20everything%20is%20a%20vector%20-%26gt%3b%20Your%20inputs%2c%20weights%2c%20and%20your%20learned%20semantic%20space%20and%20embeddings.%20Vector%20Dbs%20can%20be%20used%20to%20store%20and%20retrieve%20these%20artifacts%20efficiently.%0aWhat%20is%20the%20right%20way%20of%20storing%20and%20retrieving%20these%20vectors%3f%20You%20typically%20want%20%26lsquo%3bSimilar%26rsquo%3b%20vectors%20to%20be%20bunched%20together.%20Let%26rsquo%3bs%20define%20similarity%20as%20the%20distance%20between%20two%20vectors." aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fvector-databases%2f&name=What%20are%20vector%20databases%3f%20Why%20are%20they%20hot%20right%20now%3f&description=So%20What%20are%20Vector%20Dbs%3f%20Vector%20Dbs%20are%20Databases%20that%20have%20native%20support%20to%20store%20and%20retrieve%20vector%20data.%20In%20Deep%20Learning%20everything%20is%20a%20vector%20-%26gt%3b%20Your%20inputs%2c%20weights%2c%20and%20your%20learned%20semantic%20space%20and%20embeddings.%20Vector%20Dbs%20can%20be%20used%20to%20store%20and%20retrieve%20these%20artifacts%20efficiently.%0aWhat%20is%20the%20right%20way%20of%20storing%20and%20retrieving%20these%20vectors%3f%20You%20typically%20want%20%26lsquo%3bSimilar%26rsquo%3b%20vectors%20to%20be%20bunched%20together.%20Let%26rsquo%3bs%20define%20similarity%20as%20the%20distance%20between%20two%20vectors." aria-label="Tumblr">
       <i class="fab fa-tumblr " aria-hidden="true"></i>
     </a>
   </li>
@@ -166,7 +164,12 @@ What is the right way of storing and retrieving these vectors? You typically wan
     </div>
     
     <div id="toc">
-      <nav id="TableOfContents"></nav>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#so-what-are-vector-dbs">So What are Vector Dbs?</a></li>
+    <li><a href="#what-changed-after-chatgpt-and-why-are-they-blowing-up-now">What changed after ChatGPT? And why are they blowing up now?</a></li>
+  </ul>
+</nav>
     </div>
     
   </span>
@@ -218,7 +221,7 @@ What is the right way of storing and retrieving these vectors? You typically wan
   
     
     <div class="content" itemprop="articleBody">
-      <p><strong>So What are Vector Dbs?</strong></p>
+      <h2 id="so-what-are-vector-dbs">So What are Vector Dbs?</h2>
 <p>Vector Dbs are Databases that have native support to store and retrieve vector data.
 In Deep Learning everything is a vector -&gt; Your inputs, weights, and your learned semantic space and embeddings.
 Vector Dbs can be used to store and retrieve these artifacts efficiently.</p>
@@ -227,11 +230,11 @@ You typically want &lsquo;Similar&rsquo; vectors to be bunched together. Let&rsq
 You want fast retrieval of vectors similar to the one you are interested in.
 Here is a <a href="https://milvus.io/docs/search.md">Milvus</a> tutorial on how to do that.</p>
 <p>It all started with <a href="https://arxiv.org/pdf/1702.08734.pdf">Billion-scale similarity search with GPUs</a> paper from Meta.</p>
-<p>The underlying algorithms of vector dbs are heuristics, and different implementations choose different trade-offs between accuracy and speed.</p>
+<p>The underlying algorithms of vector dbs involving building efficient indices using heuristics. Different implementations choose different trade-offs between accuracy and speed.</p>
 <p>You can checkout <a href="https://www.pinecone.io/learn/vector-database/">Pinecone&rsquo;s</a> blog for additional reading.
 Pinecone recently <a href="https://www.finsmes.com/2023/04/pinecone-raises-100m-in-series-b-funding.html">raised</a> hundred millions dollars in their latest funding round.</p>
-<p><strong>What changed after ChatGPT? And why are they blowing up now?</strong></p>
-<p>LLMs for many are just APIs that they can integrate into their workflows. If you are an organization that is buying an API subscription to these foundational models, you do not get to re-train the models, or feed all the facts and policies that are specific to your organization.
+<h2 id="what-changed-after-chatgpt-and-why-are-they-blowing-up-now">What changed after ChatGPT? And why are they blowing up now?</h2>
+<p>LLMs for many are just APIs that they can integrate into their workflows. If you are an organization that is buying an API subscription to the foundational LLM models, you do not get to re-train the models, or feed all the facts and policies that are specific to your organization.
 The products on top of LLMs we have today do not have a persistence layer. That&rsquo;s where vector databases can help. You could augment your prompts with extra information from your documents to produce customized outputs.
 You could store older responses to particular prompts and re-use them. These are also being used in Auto-gpt like projects to replace the role of prompt engineers where it&rsquo;s necessary to prompt the LLMs multiple times to complete a task.</p>
 <p>This <a href="https://www.datanami.com/2023/03/27/vector-databases-emerge-to-fill-critical-role-in-ai/">blog</a> talks about one such use case.</p>
@@ -264,7 +267,12 @@ You could store older responses to particular prompts and re-use them. These are
 
     
     <div id="toc-footer" style="display: none">
-      <nav id="TableOfContents"></nav>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#so-what-are-vector-dbs">So What are Vector Dbs?</a></li>
+    <li><a href="#what-changed-after-chatgpt-and-why-are-they-blowing-up-now">What changed after ChatGPT? And why are they blowing up now?</a></li>
+  </ul>
+</nav>
     </div>
     
 
@@ -312,7 +320,7 @@ You could store older responses to particular prompts and re-use them. These are
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fvector-databases%2f&name=What%20are%20vector%20databases%3f%20Why%20are%20they%20hot%20right%20now%3f&description=So%20What%20are%20Vector%20Dbs%3f%0aVector%20Dbs%20are%20Databases%20that%20have%20native%20support%20to%20store%20and%20retrieve%20vector%20data.%20In%20Deep%20Learning%20everything%20is%20a%20vector%20-%26gt%3b%20Your%20inputs%2c%20weights%2c%20and%20your%20learned%20semantic%20space%20and%20embeddings.%20Vector%20Dbs%20can%20be%20used%20to%20store%20and%20retrieve%20these%20artifacts%20efficiently.%0aWhat%20is%20the%20right%20way%20of%20storing%20and%20retrieving%20these%20vectors%3f%20You%20typically%20want%20%26lsquo%3bSimilar%26rsquo%3b%20vectors%20to%20be%20bunched%20together.%20Let%26rsquo%3bs%20define%20similarity%20as%20the%20distance%20between%20two%20vectors." aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fvector-databases%2f&name=What%20are%20vector%20databases%3f%20Why%20are%20they%20hot%20right%20now%3f&description=So%20What%20are%20Vector%20Dbs%3f%20Vector%20Dbs%20are%20Databases%20that%20have%20native%20support%20to%20store%20and%20retrieve%20vector%20data.%20In%20Deep%20Learning%20everything%20is%20a%20vector%20-%26gt%3b%20Your%20inputs%2c%20weights%2c%20and%20your%20learned%20semantic%20space%20and%20embeddings.%20Vector%20Dbs%20can%20be%20used%20to%20store%20and%20retrieve%20these%20artifacts%20efficiently.%0aWhat%20is%20the%20right%20way%20of%20storing%20and%20retrieving%20these%20vectors%3f%20You%20typically%20want%20%26lsquo%3bSimilar%26rsquo%3b%20vectors%20to%20be%20bunched%20together.%20Let%26rsquo%3bs%20define%20similarity%20as%20the%20distance%20between%20two%20vectors." aria-label="Tumblr">
       <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
     </a>
   </li>
