@@ -14,8 +14,7 @@
       <pubDate>Wed, 10 May 2023 05:03:31 +0530</pubDate>
       
       <guid>https://gopick.github.io/posts/programming/vector-databases/</guid>
-      <description>So What are Vector Dbs?
-Vector Dbs are Databases that have native support to store and retrieve vector data. In Deep Learning everything is a vector -&amp;gt; Your inputs, weights, and your learned semantic space and embeddings. Vector Dbs can be used to store and retrieve these artifacts efficiently.
+      <description>So What are Vector Dbs? Vector Dbs are Databases that have native support to store and retrieve vector data. In Deep Learning everything is a vector -&amp;gt; Your inputs, weights, and your learned semantic space and embeddings. Vector Dbs can be used to store and retrieve these artifacts efficiently.
 What is the right way of storing and retrieving these vectors? You typically want &amp;lsquo;Similar&amp;rsquo; vectors to be bunched together. Let&amp;rsquo;s define similarity as the distance between two vectors.</description>
     </item>
     
