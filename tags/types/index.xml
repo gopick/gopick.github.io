@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Types on Ricercar</title>
+    <link>https://gopick.github.io/tags/types/</link>
+    <description>Recent content in Types on Ricercar</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Gopichand Kotana</copyright>
+    <lastBuildDate>Mon, 28 Aug 2023 05:03:31 +0530</lastBuildDate><atom:link href="https://gopick.github.io/tags/types/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What are User-defined types?</title>
+      <link>https://gopick.github.io/posts/programming/data-types/</link>
+      <pubDate>Mon, 28 Aug 2023 05:03:31 +0530</pubDate>
+      
+      <guid>https://gopick.github.io/posts/programming/data-types/</guid>
+      <description>User-defined types are a convenience.
+People always quote the principles of Object-Oriented Programming as a reason for using classes. Obvious abstraction. Free encapsulation. We can inherit all the goodness. And We get that sweet sweet runtime polymorphism.
+But?
+Abstraction is hard. Finding the right abstractions is hard. Implementing interactions between these abstractions is hard. Encapsulation is essential, but the level of encapsulation provided by object-oriented languages isn&amp;rsquo;t always needed. In many cases, you just need a C style struct and a utility file that has functions that manipulate this data.</description>
+    </item>
+    
+  </channel>
+</rss>

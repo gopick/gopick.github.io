@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <script type="text/javascript" src="https://latest.cactus.chat/cactus.js"></script>
+  <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> What are User-defined types? | Ricercar</title>
+  <link rel = 'canonical' href = 'https://gopick.github.io/posts/programming/data-types/'>
+  <meta name="description" content="I work at GS in the Core Data Engineering Team. Previously, I spent five years playing badminton at IIT Kanpur. I also got a Bachelor’s and Master’s degree in computer science during that time. This blog is a platform for me to speak my mind; to curate some of my ideas and opinions. This is a personal blog, and all views presented here are my own.
+
+Current Interests - Low level code design, Databases">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="What are User-defined types?" />
+<meta property="og:description" content="User-defined types are a convenience.
+People always quote the principles of Object-Oriented Programming as a reason for using classes. Obvious abstraction. Free encapsulation. We can inherit all the goodness. And We get that sweet sweet runtime polymorphism.
+But?
+Abstraction is hard. Finding the right abstractions is hard. Implementing interactions between these abstractions is hard. Encapsulation is essential, but the level of encapsulation provided by object-oriented languages isn&rsquo;t always needed. In many cases, you just need a C style struct and a utility file that has functions that manipulate this data." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://gopick.github.io/posts/programming/data-types/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-08-28T05:03:31+05:30" />
+<meta property="article:modified_time" content="2023-08-28T05:03:31+05:30" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="What are User-defined types?"/>
+<meta name="twitter:description" content="User-defined types are a convenience.
+People always quote the principles of Object-Oriented Programming as a reason for using classes. Obvious abstraction. Free encapsulation. We can inherit all the goodness. And We get that sweet sweet runtime polymorphism.
+But?
+Abstraction is hard. Finding the right abstractions is hard. Implementing interactions between these abstractions is hard. Encapsulation is essential, but the level of encapsulation provided by object-oriented languages isn&rsquo;t always needed. In many cases, you just need a C style struct and a utility file that has functions that manipulate this data."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://gopick.github.io/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css" integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q=="> 
+
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://gopick.github.io/images/favicon.ico" />
+
+  
+  
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Writings</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://gopick.github.io/posts/programming/multithreading-in-java/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fdata-types%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fdata-types%2f&text=What%20are%20User-defined%20types%3f" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fdata-types%2f&title=What%20are%20User-defined%20types%3f" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fdata-types%2f&is_video=false&description=What%20are%20User-defined%20types%3f" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=What%20are%20User-defined%20types%3f&body=Check out this article: https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fdata-types%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fdata-types%2f&title=What%20are%20User-defined%20types%3f" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fdata-types%2f&title=What%20are%20User-defined%20types%3f" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fdata-types%2f&name=What%20are%20User-defined%20types%3f&description=User-defined%20types%20are%20a%20convenience.%0aPeople%20always%20quote%20the%20principles%20of%20Object-Oriented%20Programming%20as%20a%20reason%20for%20using%20classes.%20Obvious%20abstraction.%20Free%20encapsulation.%20We%20can%20inherit%20all%20the%20goodness.%20And%20We%20get%20that%20sweet%20sweet%20runtime%20polymorphism.%0aBut%3f%0aAbstraction%20is%20hard.%20Finding%20the%20right%20abstractions%20is%20hard.%20Implementing%20interactions%20between%20these%20abstractions%20is%20hard.%20Encapsulation%20is%20essential%2c%20but%20the%20level%20of%20encapsulation%20provided%20by%20object-oriented%20languages%20isn%26rsquo%3bt%20always%20needed.%20In%20many%20cases%2c%20you%20just%20need%20a%20C%20style%20struct%20and%20a%20utility%20file%20that%20has%20functions%20that%20manipulate%20this%20data." aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fdata-types%2f&t=What%20are%20User-defined%20types%3f" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    
+    <div id="toc">
+      <nav id="TableOfContents"></nav>
+    </div>
+    
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        What are User-defined types?
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2023-08-28 05:03:31 &#43;0530 IST" itemprop="datePublished">2023-08-28</time>
+          
+        </div>
+        
+        
+        <div class="article-read-time">
+          <i class="far fa-clock"></i>
+          
+          1 minute read
+        </div>
+        
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="/tags/types" rel="tag">Types</a>
+            
+             ,  
+            <a class="tag-link" href="/tags/programming" rel="tag">Programming</a>
+            
+        </div>
+        
+      </div>
+    </header>
+
+  
+    
+    <div class="content" itemprop="articleBody">
+      <p>User-defined types are a convenience.</p>
+<p>People always quote the principles of Object-Oriented Programming as a reason for using classes. Obvious abstraction. Free encapsulation. We can inherit all the goodness. And We get that sweet sweet runtime polymorphism.</p>
+<p>But?</p>
+<p>Abstraction is hard. Finding the right abstractions is hard. Implementing interactions between these abstractions is hard.
+Encapsulation is essential, but the level of encapsulation provided by object-oriented languages isn&rsquo;t always needed.
+In many cases, you just need a C style struct and a utility file that has functions that manipulate this data.
+Forcing inheritance to get the benefits of it often doesn&rsquo;t end well. It makes the code tightly coupled, hard to read/maintain, and I believe it&rsquo;s commonly agreed upon at this point that deep inheritance is terrible and need to be avoided.
+Implementing interfaces and extending abstract datatypes is actually not too bad to get that sweet sweet runtime polymorphism.</p>
+<p>In India, most devs learn object-oriented programming by writing Java code. And I don&rsquo;t think it shapes intuition of types correctly.
+The problem with Java is, classes are forced. So, when designing a solution to a problem, you need to extract the entities that you want to model as classes and define how the instantiations of these classes(objects) interact.
+This pushes object-orientedness into design, and code is just implementation. But, people spend a lot of time writing programs that solve specific toy problems before they learn to design components of a fairly complex system.
+So, it is easy to stop seeing types for what they are and start seeing it as a language implication.</p>
+<p>I think we should practice finding right abstractions, deciding on the right amount of encapsulation, and learn how to simplify object interactions.
+Only after that, User-defined types are truly a convenience, and they become a tool to keep the code maintainable and extensible.</p>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/posts">Writings</a></li>
+         
+          <li><a href="/tags">Tags</a></li>
+        
+      </ul>
+    </div>
+
+    
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents"></nav>
+    </div>
+    
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fdata-types%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fdata-types%2f&text=What%20are%20User-defined%20types%3f" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fdata-types%2f&title=What%20are%20User-defined%20types%3f" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fdata-types%2f&is_video=false&description=What%20are%20User-defined%20types%3f" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=What%20are%20User-defined%20types%3f&body=Check out this article: https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fdata-types%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fdata-types%2f&title=What%20are%20User-defined%20types%3f" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fdata-types%2f&title=What%20are%20User-defined%20types%3f" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fdata-types%2f&name=What%20are%20User-defined%20types%3f&description=User-defined%20types%20are%20a%20convenience.%0aPeople%20always%20quote%20the%20principles%20of%20Object-Oriented%20Programming%20as%20a%20reason%20for%20using%20classes.%20Obvious%20abstraction.%20Free%20encapsulation.%20We%20can%20inherit%20all%20the%20goodness.%20And%20We%20get%20that%20sweet%20sweet%20runtime%20polymorphism.%0aBut%3f%0aAbstraction%20is%20hard.%20Finding%20the%20right%20abstractions%20is%20hard.%20Implementing%20interactions%20between%20these%20abstractions%20is%20hard.%20Encapsulation%20is%20essential%2c%20but%20the%20level%20of%20encapsulation%20provided%20by%20object-oriented%20languages%20isn%26rsquo%3bt%20always%20needed.%20In%20many%20cases%2c%20you%20just%20need%20a%20C%20style%20struct%20and%20a%20utility%20file%20that%20has%20functions%20that%20manipulate%20this%20data." aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fgopick.github.io%2fposts%2fprogramming%2fdata-types%2f&t=What%20are%20User-defined%20types%3f" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2023  Gopichand Kotana 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Writings</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+
+<script src=/js/code-copy.js></script>
+
+
+
+
+</html>
