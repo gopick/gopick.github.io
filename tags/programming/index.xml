@@ -31,6 +31,15 @@ Threads are lightweight execution units within a process. They share the same me
     </item>
     
     <item>
+      <title>Software construction course by MIT</title>
+      <link>https://gopick.github.io/posts/programming/software_construction/</link>
+      <pubDate>Thu, 01 Jun 2023 10:03:31 +0530</pubDate>
+      
+      <guid>https://gopick.github.io/posts/programming/software_construction/</guid>
+      <description>This was a great weekend read. I was familiar with most of the concepts introduced in this course, but it was great to have them introduced in more formal way. The course uses typescript, and I finally got some exposure to it. Maybe as a next step I should use it to build something - something for the future. I think it&amp;rsquo;s a great course for people just joining the workforce as software devs.</description>
+    </item>
+    
+    <item>
       <title>Advent of Code 2022</title>
       <link>https://gopick.github.io/posts/programming/advent-of-code-2022/</link>
       <pubDate>Thu, 26 Jan 2023 10:03:31 +0530</pubDate>
