@@ -9,6 +9,24 @@
     <copyright>Gopichand Kotana</copyright>
     <lastBuildDate>Wed, 10 May 2023 05:03:31 +0530</lastBuildDate><atom:link href="https://gopick.github.io/tags/ml/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>How should you use roles in Snowflake?</title>
+      <link>https://gopick.github.io/posts/programming/snowflake-secondary-roles/</link>
+      <pubDate>Wed, 10 May 2023 05:03:31 +0530</pubDate>
+      
+      <guid>https://gopick.github.io/posts/programming/snowflake-secondary-roles/</guid>
+      <description>A -&amp;gt; accesses O -&amp;gt; objects U -&amp;gt; users
+AOU -&amp;gt; per user role
+master role to user role -&amp;gt; A*O + U
+secondary roles -&amp;gt; A*O
+A1O1 + A2O2 + A3O3 + A4O4 + 4 -&amp;gt; user role
+What are we missing -&amp;gt; statements that assign roles to users
+Users -&amp;gt; U -&amp;gt; U roles Roles -&amp;gt; R -&amp;gt; R roles
+R*S -&amp;gt; statements vs U statements
+R(A*O)
+A*O + S</description>
+    </item>
+    
+    <item>
       <title>What are vector databases? Why are they hot right now?</title>
       <link>https://gopick.github.io/posts/programming/vector-databases/</link>
       <pubDate>Wed, 10 May 2023 05:03:31 +0530</pubDate>
