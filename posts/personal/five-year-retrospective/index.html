@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <script type="text/javascript" src="https://latest.cactus.chat/cactus.js"></script>
+  <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> 5 year retrospective | Ricercar</title>
+  <link rel = 'canonical' href = 'https://gopick.github.io/posts/personal/five-year-retrospective/'>
+  <meta name="description" content="I work at GS in their wealth management division. Previously, I spent five years as a software engineer in the data engineering team in GS. Before that, I spent five years playing badminton at IIT Kanpur. I also got a Bachelor’s and Master’s degree in computer science during that time. This blog is a platform for me to speak my mind; to curate some of my ideas and opinions. This is a personal blog, and all views presented here are my own.
+
+Current Interests - Low level code design, Databases">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="5 year retrospective" />
+<meta property="og:description" content="It has been 5 years since I started working. I still work at Goldman, although I don&rsquo;t work with data anymore. I do App development now. In a truly agile way (A 5 year sprint? Don&rsquo;t hire me as your scrum master), I have decided to write a retrospective. What went well? What did not go so well? What could be better? But more importantly, what did I learn?
+Before I started working, life was like sprinting on a track." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://gopick.github.io/posts/personal/five-year-retrospective/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-08-19T11:43:23+05:30" />
+<meta property="article:modified_time" content="2024-08-19T11:43:23+05:30" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="5 year retrospective"/>
+<meta name="twitter:description" content="It has been 5 years since I started working. I still work at Goldman, although I don&rsquo;t work with data anymore. I do App development now. In a truly agile way (A 5 year sprint? Don&rsquo;t hire me as your scrum master), I have decided to write a retrospective. What went well? What did not go so well? What could be better? But more importantly, what did I learn?
+Before I started working, life was like sprinting on a track."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://gopick.github.io/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css" integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q=="> 
+
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://gopick.github.io/images/favicon.ico" />
+
+  
+  
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Writings</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://gopick.github.io/posts/programming/data-types/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fgopick.github.io%2fposts%2fpersonal%2ffive-year-retrospective%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fgopick.github.io%2fposts%2fpersonal%2ffive-year-retrospective%2f&text=5%20year%20retrospective" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fgopick.github.io%2fposts%2fpersonal%2ffive-year-retrospective%2f&title=5%20year%20retrospective" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fgopick.github.io%2fposts%2fpersonal%2ffive-year-retrospective%2f&is_video=false&description=5%20year%20retrospective" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=5%20year%20retrospective&body=Check out this article: https%3a%2f%2fgopick.github.io%2fposts%2fpersonal%2ffive-year-retrospective%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fgopick.github.io%2fposts%2fpersonal%2ffive-year-retrospective%2f&title=5%20year%20retrospective" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fgopick.github.io%2fposts%2fpersonal%2ffive-year-retrospective%2f&title=5%20year%20retrospective" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fgopick.github.io%2fposts%2fpersonal%2ffive-year-retrospective%2f&name=5%20year%20retrospective&description=It%20has%20been%205%20years%20since%20I%20started%20working.%20I%20still%20work%20at%20Goldman%2c%20although%20I%20don%26rsquo%3bt%20work%20with%20data%20anymore.%20I%20do%20App%20development%20now.%20In%20a%20truly%20agile%20way%20%28A%205%20year%20sprint%3f%20Don%26rsquo%3bt%20hire%20me%20as%20your%20scrum%20master%29%2c%20I%20have%20decided%20to%20write%20a%20retrospective.%20What%20went%20well%3f%20What%20did%20not%20go%20so%20well%3f%20What%20could%20be%20better%3f%20But%20more%20importantly%2c%20what%20did%20I%20learn%3f%0aBefore%20I%20started%20working%2c%20life%20was%20like%20sprinting%20on%20a%20track." aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fgopick.github.io%2fposts%2fpersonal%2ffive-year-retrospective%2f&t=5%20year%20retrospective" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    
+    <div id="toc">
+      <nav id="TableOfContents"></nav>
+    </div>
+    
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        5 year retrospective
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2024-08-19 11:43:23 &#43;0530 IST" itemprop="datePublished">2024-08-19</time>
+          
+        </div>
+        
+        
+        <div class="article-read-time">
+          <i class="far fa-clock"></i>
+          
+          2 minute read
+        </div>
+        
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="/tags/personal" rel="tag">Personal</a>
+            
+        </div>
+        
+      </div>
+    </header>
+
+  
+    
+    <div class="content" itemprop="articleBody">
+      <p>It has been 5 years since I started working. I still work at Goldman, although I don&rsquo;t work with data anymore. I do App development now. In a truly agile way (A 5 year sprint? Don&rsquo;t hire me as your scrum master), I have decided to write a retrospective.
+What went well? What did not go so well? What could be better? But more importantly, what did I learn?</p>
+<p>Before I started working, life was like sprinting on a track. Your lane is set, and you run to set a time that you are happy with. I was never one to push myself to the extremes. I managed. I managed quite well at times, but I gave my freedom (of thought, movement, and time) a lot more importance than it deserved.
+And for me, routine was enemy of this freedom. Over the years I have realized that if you want to push beyond a certain level, you need to burn out the processing cycles of your brain for the important stuff. This doesn&rsquo;t leave you with enough energy and brain power to live life as it comes. You need a routine, where things happen in a predictable way.
+I sleep early now and wake up early. I go to office every day whether I need to be collaborative on the given day or not. I exercise in the morning. The average volume of work I can do has improved significantly.
+I feel like a fool sometimes that I haven&rsquo;t always been doing this.</p>
+<p>I never really thought about economy before I started working. And I definitely never thought about macroeconomics. But it turns out that it has a major role to play in how we earn, how(and where) we work, how we plan our futures, and how we live.
+I have seen some of my smartest peers get fired for reasons beyond their control. And I have seen some peers earn enough money to retire during the post covid highs of the market.
+I was mostly a passenger. The highest highs and lowest lows didn&rsquo;t affect me much at all.
+I realized that you need to know how your team earns money. You need to gauge how your work helps make money. Who sponsors your team, and what&rsquo;s their opinion of your team and your products? Is your team&rsquo;s work important for functioning or is it strategic to their future? Will they invest in it even when the market cycles are bad?
+Are the leaders in your team involved in decision-making at the top? If you are already in a team that directly sells something and makes money, then that&rsquo;s the best place to be. But it&rsquo;s rarely the case for most people. So you need to show interest in the &ldquo;business side&rdquo; of things. It helps you plan and make better decisions.</p>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/posts">Writings</a></li>
+         
+          <li><a href="/tags">Tags</a></li>
+        
+      </ul>
+    </div>
+
+    
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents"></nav>
+    </div>
+    
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fgopick.github.io%2fposts%2fpersonal%2ffive-year-retrospective%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fgopick.github.io%2fposts%2fpersonal%2ffive-year-retrospective%2f&text=5%20year%20retrospective" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fgopick.github.io%2fposts%2fpersonal%2ffive-year-retrospective%2f&title=5%20year%20retrospective" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fgopick.github.io%2fposts%2fpersonal%2ffive-year-retrospective%2f&is_video=false&description=5%20year%20retrospective" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=5%20year%20retrospective&body=Check out this article: https%3a%2f%2fgopick.github.io%2fposts%2fpersonal%2ffive-year-retrospective%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fgopick.github.io%2fposts%2fpersonal%2ffive-year-retrospective%2f&title=5%20year%20retrospective" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fgopick.github.io%2fposts%2fpersonal%2ffive-year-retrospective%2f&title=5%20year%20retrospective" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fgopick.github.io%2fposts%2fpersonal%2ffive-year-retrospective%2f&name=5%20year%20retrospective&description=It%20has%20been%205%20years%20since%20I%20started%20working.%20I%20still%20work%20at%20Goldman%2c%20although%20I%20don%26rsquo%3bt%20work%20with%20data%20anymore.%20I%20do%20App%20development%20now.%20In%20a%20truly%20agile%20way%20%28A%205%20year%20sprint%3f%20Don%26rsquo%3bt%20hire%20me%20as%20your%20scrum%20master%29%2c%20I%20have%20decided%20to%20write%20a%20retrospective.%20What%20went%20well%3f%20What%20did%20not%20go%20so%20well%3f%20What%20could%20be%20better%3f%20But%20more%20importantly%2c%20what%20did%20I%20learn%3f%0aBefore%20I%20started%20working%2c%20life%20was%20like%20sprinting%20on%20a%20track." aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fgopick.github.io%2fposts%2fpersonal%2ffive-year-retrospective%2f&t=5%20year%20retrospective" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2024  Gopichand Kotana 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Writings</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+
+<script src=/js/code-copy.js></script>
+
+
+
+
+</html>

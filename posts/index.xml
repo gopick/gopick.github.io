@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Gopichand Kotana</copyright>
-    <lastBuildDate>Mon, 28 Aug 2023 05:03:31 +0530</lastBuildDate><atom:link href="https://gopick.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Aug 2024 11:43:23 +0530</lastBuildDate><atom:link href="https://gopick.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>5 year retrospective</title>
+      <link>https://gopick.github.io/posts/personal/five-year-retrospective/</link>
+      <pubDate>Mon, 19 Aug 2024 11:43:23 +0530</pubDate>
+      
+      <guid>https://gopick.github.io/posts/personal/five-year-retrospective/</guid>
+      <description>It has been 5 years since I started working. I still work at Goldman, although I don&amp;rsquo;t work with data anymore. I do App development now. In a truly agile way (A 5 year sprint? Don&amp;rsquo;t hire me as your scrum master), I have decided to write a retrospective. What went well? What did not go so well? What could be better? But more importantly, what did I learn?
+Before I started working, life was like sprinting on a track.</description>
+    </item>
+    
     <item>
       <title>What are User-defined types?</title>
       <link>https://gopick.github.io/posts/programming/data-types/</link>
@@ -15,7 +25,7 @@
       
       <guid>https://gopick.github.io/posts/programming/data-types/</guid>
       <description>User-defined types are a convenience.
-People always quote the principles of Object-Oriented Programming as a reason for using classes. Obvious abstraction. Free encapsulation. We can inherit all the goodness. And We get that sweet sweet runtime polymorphism.
+People always quote the principles of Object-Oriented Programming as a reason for using classes - Obvious abstraction, free encapsulation, we can inherit all the goodness and, we get that sweet sweet runtime polymorphism.
 But?
 Abstraction is hard. Finding the right abstractions is hard. Implementing interactions between these abstractions is hard. Encapsulation is essential, but the level of encapsulation provided by object-oriented languages isn&amp;rsquo;t always needed. In many cases, you just need a C style struct and a utility file that has functions that manipulate this data.</description>
     </item>
@@ -64,7 +74,7 @@ What is the right way of storing and retrieving these vectors? We typically want
       <pubDate>Fri, 13 Jan 2023 10:42:23 +0530</pubDate>
       
       <guid>https://gopick.github.io/posts/personal/why-now/</guid>
-      <description>I made an account on Orkut in 2009. In those days an internet connection was expensive and slow. Luckily, one of my uncles moved into our house for a while because he got a job in the city as a PhP developer. He had a PC that I could use. Most people around me didn’t have any virtual social presence, and no one was bombarded with an insane amount of curated and unnecessary information.</description>
+      <description>I made an account on Orkut in 2009. In those days, internet connections were expensive and (super)slow. I didn&amp;rsquo;t have my own pc, but luckily, one of my uncles got a job in the city as a PhP developer. He stayed with us for a few years and he had a PC that I could use. Most people around me didn’t have any virtual social presence. And no one was bombarded with an insane amount of curated and unnecessary information like we are today.</description>
     </item>
     
   </channel>

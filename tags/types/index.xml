@@ -15,7 +15,7 @@
       
       <guid>https://gopick.github.io/posts/programming/data-types/</guid>
       <description>User-defined types are a convenience.
-People always quote the principles of Object-Oriented Programming as a reason for using classes. Obvious abstraction. Free encapsulation. We can inherit all the goodness. And We get that sweet sweet runtime polymorphism.
+People always quote the principles of Object-Oriented Programming as a reason for using classes - Obvious abstraction, free encapsulation, we can inherit all the goodness and, we get that sweet sweet runtime polymorphism.
 But?
 Abstraction is hard. Finding the right abstractions is hard. Implementing interactions between these abstractions is hard. Encapsulation is essential, but the level of encapsulation provided by object-oriented languages isn&amp;rsquo;t always needed. In many cases, you just need a C style struct and a utility file that has functions that manipulate this data.</description>
     </item>
